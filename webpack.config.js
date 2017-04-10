@@ -5,6 +5,7 @@
 var http = require('http');
 var path = require('path');
 var webpack=require('webpack');
+const UglifyJSPlugin=require('uglifyjs-webpack-plugin');
 
 const contextRoot = path.resolve(__dirname);
 const outputPath = path.join(__dirname, 'build')
@@ -28,6 +29,10 @@ module.exports = {
         ]
     },
     plugins: [
+        new UglifyJSPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
+        })
     ]
 
 }
