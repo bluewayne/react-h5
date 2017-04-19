@@ -2,19 +2,20 @@
  * Created by liujinhe on 2017/4/7.
  */
 
-var http = require('http');
-var path = require('path');
+const http = require('http');
+const path = require('path');
 var webpack=require('webpack');
-const UglifyJSPlugin=require('uglifyjs-webpack-plugin');
 
 const contextRoot = path.resolve(__dirname);
 const outputPath = path.join(__dirname, 'build')
 
+const entryConfig=require('./src/entry.config.js');
+
 module.exports = {
     context: contextRoot,
-    entry: ["./src/pages/noble_details/index.js"],
+    entry: entryConfig,
     output: {
-        filename: '[name].js',
+        filename: '[name].bundle.js',
         path: outputPath,
         publicPath: "/assets/"
     },
@@ -28,11 +29,10 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new UglifyJSPlugin(),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
-        })
-    ]
+
+    externals:{
+        'react': 'React',
+        'react-dom': 'ReactDOM'
+    }
 
 }

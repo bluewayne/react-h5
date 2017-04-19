@@ -4,7 +4,9 @@
   "description": "use react to develop h5",
   "main": "index.js",
   "scripts": {
-    "test": "npm run dev"
+    "dev": "webpack-dev-server --inline --hot",
+    "build":"webpack --colors --display-error-details",
+    "build-pro":"webpack --config webpack.config.pro.js --colors --display-error-details"
   },
   "keywords": [
     "react",

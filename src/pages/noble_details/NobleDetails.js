@@ -23,6 +23,7 @@ function NobleDetails(props, context) {
 
                 <h2 className="hd-nbgd">基础贵族特权</h2>
                 <h2 className="hd-nbgd">基础贵族特权</h2>
+                <h2 className="hd-nbgd">基础贵族特权</h2>
 
 
                 <div className="bd-nbgd">
@@ -38,3 +39,9 @@ function NobleDetails(props, context) {
 }
 
 export default  NobleDetails;
+
+
+export function _yesd(){
+
+    console.log('bruceliu');
+}
